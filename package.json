@@ -1,0 +1,25 @@
+{
+  "name": "@tehw0lf/mvc",
+  "version": "0.0.1",
+  "description": "minimum viable css",
+  "main": "index.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tehw0lf/mvc.git"
+  },
+  "keywords": [
+    "scss",
+    "css",
+    "layout",
+    "minimal"
+  ],
+  "author": "tehw0lf",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tehw0lf/mvc/issues"
+  },
+  "homepage": "https://github.com/tehw0lf/mvc#readme"
+}
