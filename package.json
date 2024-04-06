@@ -4,7 +4,7 @@
   "description": "minimum viable css",
   "main": "index.scss",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "sass index.scss dist/index.css --style=compressed"
   },
   "repository": {
     "type": "git",
@@ -12,7 +12,6 @@
   },
   "keywords": [
     "scss",
-    "css",
     "layout",
     "minimal"
   ],
@@ -21,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/tehw0lf/mvc/issues"
   },
-  "homepage": "https://github.com/tehw0lf/mvc#readme"
+  "homepage": "https://github.com/tehw0lf/mvc#readme",
+  "devDependencies": {
+    "sass": "^1.74.1"
+  }
 }
