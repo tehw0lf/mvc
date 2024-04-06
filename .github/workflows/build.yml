@@ -32,7 +32,8 @@ jobs:
         if: ${{ github.event_name == 'push' && (env.mvc_latest_version != env.mvc_package_version) == 'true' }}
         run: |
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-          npm publish --access public --dry-run
-          npm publish --access public
+          cp package.json dist/
+          npm publish dist/ --access public --dry-run
+          npm publish dist/ --access public
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

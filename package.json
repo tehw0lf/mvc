@@ -1,6 +1,6 @@
 {
   "name": "@tehw0lf/mvc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "minimum viable css",
   "main": "index.scss",
   "scripts": {
