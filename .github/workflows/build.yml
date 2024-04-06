@@ -30,10 +30,10 @@ jobs:
         run: |
           echo "mvc_latest_version=$(npm view @tehw0lf/mvc dist-tags.latest)" >> $GITHUB_ENV
           echo "mvc_package_version=$(jq -r ".version" dist/package.json)" >> $GITHUB_ENV
-          echo $GITHUB_ENV
       - name: Publish library to npm registry if local package is newer
         if: ${{ github.event_name == 'push' && (env.mvc_latest_version != env.mvc_package_version) == 'true' }}
         run: |
+          echo $GITHUB_ENV
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
           npm publish dist/ --access public --dry-run
           npm publish dist/ --access public
