@@ -1,0 +1,38 @@
+name: mvc build and publish pipeline
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.11.0
+          registry-url: "https://registry.npmjs.org"
+      - name: Install packages
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Check if published library version is outdated
+        if: ${{ github.event_name == 'push' }}
+        run: |
+          echo "mvc_latest_version=$(npm view @tehw0lf/mvc dist-tags.latest)" >> $GITHUB_ENV
+          echo "mvc_package_version=$(jq -r ".version" dist/libs/mvc/package.json)" >> $GITHUB_ENV
+      - name: Publish library to npm registry if local package is newer
+        if: ${{ github.event_name == 'push' && (env.mvc_latest_version != env.mvc_package_version) == 'true' }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+          npm publish dist/libs/mvc --access public --dry-run
+          npm publish dist/libs/mvc --access public
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
