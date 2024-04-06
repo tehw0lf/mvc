@@ -3,7 +3,7 @@ name: mvc build and publish pipeline
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
 
 jobs:
