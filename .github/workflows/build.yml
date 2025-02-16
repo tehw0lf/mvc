@@ -1,4 +1,4 @@
-name: mvc build and publish pipeline
+name: build and publish pipeline
 
 on:
   push:
@@ -8,33 +8,18 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Install node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20.11.0
-          registry-url: "https://registry.npmjs.org"
-      - name: Install packages
-        run: npm ci
-      - name: Build
-        run: npm run build
-      - name: Copy package.json
-        run: cp package.json dist/
-      - name: Check if published library version is outdated
-        if: ${{ github.event_name == 'push' }}
-        run: |
-          echo "mvc_latest_version=$(npm view @tehw0lf/mvc dist-tags.latest)" >> $GITHUB_ENV
-          echo "mvc_package_version=$(jq -r ".version" dist/package.json)" >> $GITHUB_ENV
-      - name: Publish library to npm registry if local package is newer
-        if: ${{ github.event_name == 'push' && (env.mvc_latest_version != env.mvc_package_version) == true }}
-        run: |
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-          npm publish dist/ --access public --dry-run
-          npm publish dist/ --access public
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    name: external workflow
+    uses: tehw0lf/workflows/.github/workflows/build-test-publish.yml@main
+    permissions:
+      actions: write
+      contents: write
+      packages: write
+    with:
+      tool: "npm"
+      build_branch: "run build"
+      build_main: "run build"
+      event_name: ${{ github.event_name }}
+      libraries: "mvc"
+      library_path: "dist"
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
