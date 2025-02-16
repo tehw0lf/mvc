@@ -1,6 +1,6 @@
 {
   "name": "@tehw0lf/mvc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "minimum viable css",
   "main": "index.scss",
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/tehw0lf/mvc#readme",
   "devDependencies": {
-    "sass": "^1.74.1"
+    "sass": "^1.85.0"
   }
 }
