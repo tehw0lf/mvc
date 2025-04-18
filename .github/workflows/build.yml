@@ -20,6 +20,7 @@ jobs:
       build_main: "run build"
       event_name: ${{ github.event_name }}
       libraries: "mvc"
+      artifact_path: "dist"
       library_path: "dist"
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
