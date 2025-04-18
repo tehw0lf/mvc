@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/tehw0lf/mvc/issues"
   },
-  "homepage": "https://github.com/tehw0lf/mvc#readme"
+  "homepage": "https://github.com/tehw0lf/mvc#readme",
+  "devDependencies": {
+    "sass": "^1.85.0"
+  }
 }
