@@ -1,13 +1,10 @@
 {
   "name": "@tehw0lf/mvc",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "minimum viable css",
   "main": "index.css",
   "scripts": {
-    "build": "sass index.scss dist/index.css --style=compressed && npm pkg delete devDependencies"
-  },
-  "devDependencies": {
-    "sass": "^1.89.2"
+    "build": "sass index.scss dist/index.css --style=compressed && npm pkg delete devDependencies && cp package.json dist/"
   },
   "repository": {
     "type": "git",
@@ -23,9 +20,5 @@
   "bugs": {
     "url": "https://github.com/tehw0lf/mvc/issues"
   },
-  "homepage": "https://github.com/tehw0lf/mvc#readme",
-  "files": [
-    "dist",
-    "README.md"
-  ]
+  "homepage": "https://github.com/tehw0lf/mvc#readme"
 }
