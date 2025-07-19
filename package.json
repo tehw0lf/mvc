@@ -6,6 +6,9 @@
   "scripts": {
     "build": "sass index.scss dist/index.css --style=compressed && npm pkg delete devDependencies && cp package.json dist/"
   },
+  "devDependencies": {
+    "sass": "^1.89.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tehw0lf/mvc.git"
