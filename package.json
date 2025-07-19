@@ -21,7 +21,8 @@
     "url": "https://github.com/tehw0lf/mvc/issues"
   },
   "homepage": "https://github.com/tehw0lf/mvc#readme",
-  "devDependencies": {
-    "sass": "^1.89.2"
-  }
+  "files": [
+    "dist",
+    "README.md"
+  ]
 }
