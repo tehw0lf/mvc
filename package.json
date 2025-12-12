@@ -1,13 +1,13 @@
 {
   "name": "@tehw0lf/mvc",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "minimum viable css",
   "main": "index.css",
   "scripts": {
     "build": "sass index.scss dist/index.css --style=compressed && npm pkg delete devDependencies && cp package.json dist/"
   },
   "devDependencies": {
-    "sass": "^1.89.2"
+    "sass": "^1.96.0"
   },
   "repository": {
     "type": "git",
