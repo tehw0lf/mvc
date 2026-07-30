@@ -2,9 +2,28 @@
   "name": "@tehw0lf/mvc",
   "version": "0.0.9",
   "description": "minimum viable css",
-  "main": "index.css",
+  "main": "dist/index.css",
+  "sass": "index.scss",
+  "style": "dist/index.css",
+  "exports": {
+    ".": {
+      "sass": "./index.scss",
+      "style": "./dist/index.css",
+      "default": "./dist/index.css"
+    },
+    "./layout": {
+      "sass": "./layout/layout.scss"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.scss",
+    "layout/",
+    "dist/index.css"
+  ],
   "scripts": {
-    "build": "sass index.scss dist/index.css --style=compressed && npm pkg delete devDependencies && cp package.json dist/"
+    "build": "sass index.scss dist/index.css --style=compressed",
+    "prepack": "npm run build"
   },
   "devDependencies": {
     "sass": "^1.96.0"
