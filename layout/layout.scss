@@ -17,16 +17,19 @@
 
 .flex-column {
   @extend %flex-container;
+
   flex-direction: column;
 }
 
 .flex-row {
   @extend %flex-container;
+
   flex-direction: row;
 }
 
 .flex-row-wrap {
   @extend %flex-container;
+
   flex-direction: row;
   flex-wrap: wrap;
 }
