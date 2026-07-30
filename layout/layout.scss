@@ -7,23 +7,28 @@
   align-items: stretch;
 }
 
-.flex-column {
+// Every flex container shares these, so they are declared once and extended
+// rather than repeated per direction. The emitted rule groups the three
+// selectors; they carry no competing declarations, so the cascade is unchanged.
+%flex-container {
   display: flex;
-  flex-direction: column;
   box-sizing: border-box;
+}
+
+.flex-column {
+  @extend %flex-container;
+  flex-direction: column;
 }
 
 .flex-row {
-  display: flex;
+  @extend %flex-container;
   flex-direction: row;
-  box-sizing: border-box;
 }
 
 .flex-row-wrap {
-  display: flex;
+  @extend %flex-container;
   flex-direction: row;
   flex-wrap: wrap;
-  box-sizing: border-box;
 }
 
 .flex-fxflex {
