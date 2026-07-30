@@ -22,7 +22,7 @@
     "dist/index.css"
   ],
   "scripts": {
-    "build": "sass index.scss dist/index.css --style=compressed",
+    "build": "sass index.scss dist/index.css --style=compressed --no-source-map",
     "prepack": "npm run build"
   },
   "devDependencies": {
